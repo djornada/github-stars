@@ -1,8 +1,12 @@
+import SearchBar from "./components/search-bar";
+import Header from "./components/header";
+
 function App() {
 	return (
 		<>
-			<h1>Github stars</h1>
-			<p>Init Project</p>
+			<Header>
+				<SearchBar />
+			</Header>
 		</>
 	);
 }
