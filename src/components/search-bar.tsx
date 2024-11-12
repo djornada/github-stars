@@ -2,7 +2,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 
 function SearchBar() {
 	return (
-		<form className="max-w-md mx-auto">
+		<div className="max-w-md mx-auto">
 			<div className="relative">
 				<div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
 					<FaMagnifyingGlass className="w-4 h-4 text-zinc-500" />
@@ -21,7 +21,7 @@ function SearchBar() {
 					Search
 				</button>
 			</div>
-		</form>
+		</div>
 	);
 }
 
