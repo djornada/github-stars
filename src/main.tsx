@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { StarsContextProvider } from "./providers/stars/stars-context.tsx";
 
 const client = new ApolloClient({
 	uri: "https://api.github.com/graphql",
@@ -15,7 +16,9 @@ const client = new ApolloClient({
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<ApolloProvider client={client}>
-			<App />
+			<StarsContextProvider>
+				<App />
+			</StarsContextProvider>
 		</ApolloProvider>
 	</StrictMode>,
 );
