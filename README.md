@@ -31,6 +31,10 @@ This project  is a SPA that uses [GitHub GraphQL API](https://docs.github.com/en
 ## Technologies Used
 
 - [GitHub GraphQL API](https://docs.github.com/en/graphql)
+- [Vite](https://vite.dev)
+- [React](https://react.dev)
+- [Tailwind](https://tailwindcss.com)
+- [Apollo Client](https://www.apollographql.com/docs/react/get-started)
 
 ## License
 

@@ -1,0 +1,44 @@
+name: Deploy to gh-pages
+
+on:
+    push:
+        branches:
+            - main
+
+environment:
+    name: github-pages
+    url: ${{ steps.deployment.outputs.page_url }}
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Install nodejs
+              uses: actions/setup-node@v4
+              with:
+                node-version-file: '.nvmrc'
+                cache: 'pnpm'
+            - name: Install dependencies
+              run: pnpm install
+            - name: Build
+              run: pnpm build
+    deploy:
+        name: Deploy
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup Pages
+              uses: actions/configure-pages@v5
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                path: 'dist'
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
